@@ -58,4 +58,7 @@ Print "Download Index files"
 curl -s https://studentapi-cit.s3-us-west-2.amazonaws.com/studentapp-frontend.tar.gz | tar -xz 
 STAT_CHECK $? 
 
+systemctl enable nginx
+systemctl start nginx
+
 
