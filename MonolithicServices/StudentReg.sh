@@ -1,5 +1,10 @@
 #!bin/bash
+
 yum install nginx -y
+
+if [$? -eq 0] then
+    echo "service started"
+fi
 
 cd /usr/share/nginx/html
 
