@@ -140,3 +140,5 @@ Print "Load Schema\t\t"
 curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/studentapp-ui-proj1.sql  -o /tmp/schema.sql 
 mysql </tmp/schema.sql 
 STAT_CHECK $?
+
+## End ##
