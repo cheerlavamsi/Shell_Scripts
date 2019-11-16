@@ -2,7 +2,7 @@
 
 ## Purpose : Setup Student Application with Web + App + DB Componenets 
 ## Project : StudentApp Monolithic
-## Author : Ch Vamsi Krishna Reddy 
+## Author : Blah Blah 
 
 ## Description: This script installs and configures all web components, app components and db components.
 ##              Complete application setup will be taken care by this script. 
@@ -107,8 +107,10 @@ STAT_CHECK $?
 
 Print "Update JDBC Parameters"
 cd $TOMCAT_HOME 
-sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="admin" password="admin321" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://database-1.crn5932h8rma.us-east-1.rds.amazonaws.com:3306/studentapp"/>' conf/context.xml 
+sed -i -e '/TestDB/ d' -e '$ i <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource" maxTotal="100" maxIdle="30" maxWaitMillis="10000" username="DBUSER" password="DBPASS" driverClassName="com.mysql.jdbc.Driver" url="jdbc:mysql://DBHOST:3306/DBNAME"/>' conf/context.xml 
 STAT_CHECK $? 
+
+sed -i -e "s/DBUSER/$1/" -e "s/DBPASS/$2/" -e "s/DBHOST/$3/" -e "s/DBNAME/$4/" conf/context.xml 
 
 chown $FUSERNAME:$FUSERNAME /home/$FUSERNAME -R 
 
@@ -126,6 +128,9 @@ systemctl enable tomcat &>>$LOG
 systemctl restart tomcat &>>$LOG 
 STAT_CHECK $? 
 
+Print "Load Schema\t\t"
+yum install mariadb -y &>>$LOG 
+curl -s https://s3-us-west-2.amazonaws.com/studentapi-cit/studentapp-ui-proj1.sql  -o /tmp/schema.sql 
+mysql -h $3 -u$1 -p$2 </tmp/schema.sql 
+STAT_CHECK $?
 
-
-## End ##
