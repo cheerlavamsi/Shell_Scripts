@@ -142,3 +142,4 @@ mysql </tmp/schema.sql
 STAT_CHECK $?
 
 ## End ##
+
