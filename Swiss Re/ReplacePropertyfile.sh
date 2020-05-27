@@ -17,7 +17,7 @@ for repo in "${repos[@]}"
 do
   echo ""
   echo "****** Getting latest for" ${repo} "******"
-  cd "${repo}"
+#   cd "${repo}"
   git pull --rebase
   echo "******************************************"
 done
