@@ -18,6 +18,7 @@ do
   echo ""
   echo "****** Getting latest for" ${repo} "******"
 #   cd "${repo}"
-  git pull --rebase
+#   git pull --rebase
+    git pull ${repo}
   echo "******************************************"
 done
