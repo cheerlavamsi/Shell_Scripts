@@ -11,12 +11,13 @@ repos=(
 )
 
 echo ""
-echo "Getting latest for" ${#repos[@]} "repositories using pull --rebase"
+echo "Getting latest for" ${#repos[@]} "repositories using pull"
 
 for repo in "${repos[@]}"
 do
   echo ""
   echo "****** Getting latest for" ${repo} "******"
+  echo ""
 #   cd "${repo}"
 #   git pull --rebase
     git pull ${repo}
