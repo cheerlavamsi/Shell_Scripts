@@ -9,7 +9,7 @@
 
 
 
-### Global Variables
+### Global Variables ##
 LOG=/tmp/student.log 
 rm -f $LOG 
 G="\e[32m"
