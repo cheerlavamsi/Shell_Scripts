@@ -27,4 +27,4 @@ jobs:
           python -m pip install --upgrade pip 
 
       - name: Execute Python script
-        run: python .github/action/sample.py  # specify the path to your Python script
+        run: python .github/actions/sample.py  # specify the path to your Python script
