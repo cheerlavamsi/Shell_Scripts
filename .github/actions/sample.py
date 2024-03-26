@@ -1,3 +1,3 @@
 import os
 
-print("Welcome to the GHA")
+print(f"Welcome to the GHA")
