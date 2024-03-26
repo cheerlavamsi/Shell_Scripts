@@ -3,15 +3,15 @@ name: Python Script Execution
 on:
   push:
     branches:
-      - main  # or the branch you want to trigger this workflow on
+      - master  # or the branch you want to trigger this workflow on
   pull_request:
     branches:
-      - main  # or the branch you want to trigger this workflow on
+      - master  # or the branch you want to trigger this workflow on
 
 jobs:
   execute_script:
-    runs-on: self-hosted
-    # runs-on: ubuntu-latest
+    #runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
@@ -27,4 +27,4 @@ jobs:
           python -m pip install --upgrade pip 
 
       - name: Execute Python script
-        run: python cheerlavamsi/Shell_Scripts/.github/action/sample.py  # specify the path to your Python script
+        run: python .github/action/sample.py  # specify the path to your Python script
