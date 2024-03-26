@@ -1,0 +1,29 @@
+name: Python Script Execution
+
+on:
+  push:
+    branches:
+      - main  # or the branch you want to trigger this workflow on
+  pull_request:
+    branches:
+      - main  # or the branch you want to trigger this workflow on
+
+jobs:
+  execute_script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'  # specify the Python version you want to use, e.g., 3.8
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip 
+
+      - name: Execute Python script
+        run: python cheerlavamsi/Shell_Scripts/.github/action/sample.py  # specify the path to your Python script
